@@ -9,7 +9,7 @@ import java.time.LocalDate;
  * Created by Antony Genil Gregory on 12/11/2018 6:03 AM
  * For project : flight-manager
  **/
-@Entity
+@Entity (name = "booking")
 @Table(name = "bookings")
 public class Booking {
     @Id
@@ -26,6 +26,10 @@ public class Booking {
     private String arrivalTime;
     @Column(name = "total_cost")
     private Double totalCost;
+
+    @Column(name = "user_id", insertable = false, updatable = false)
+    private Long userId;
+
     @ManyToOne
     private User user;
 
@@ -71,6 +75,14 @@ public class Booking {
 
     public void setTotalCost(Double totalCost) {
         this.totalCost = totalCost;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public User getUser() {
