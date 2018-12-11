@@ -1,7 +1,7 @@
 -- 1. Ceate users table
 -- Store user information
 
-CREATE TABLE users (
+CREATE TABLE flight_users (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
@@ -9,9 +9,9 @@ CREATE TABLE users (
 ) ENGINE=InnoDB AUTO_INCREMENT=25;
 
 
-insert into users values (1,'test1@gmail.com','test1');
-insert into users values (2,'test2@gmail.com','test2');
-insert into users values (3,'test3@gmail.com','test3');
+insert into flight_users values (1,'test1@gmail.com','test1');
+insert into flight_users values (2,'test2@gmail.com','test2');
+insert into flight_users values (3,'test3@gmail.com','test3');
 
 
 select * from users;
@@ -36,12 +36,13 @@ insert into cities values(10,'Nashville');
 
 select * from cities;
 
+
 create table flights(
 `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `airline` varchar(50) NOT NULL,
   `from_city` varchar(50) NOT NULL,
   `to_city` varchar(50) NOT NULL,
-   price integer(10) not null,
+   price double(16,2) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25;
 
@@ -75,14 +76,14 @@ CREATE TABLE bookings(
         dep_date date not null,
 		arrival_time varchar(40) not null,
 		user_id bigint(20) not null,
-		total_cost integer(20) NOT NULL,
+		total_cost double(16,2) NOT NULL,
 	PRIMARY KEY (id),
-    foreign key(user_id) references users(id) on delete cascade on update cascade
+    foreign key(user_id) references flight_users(id) on delete cascade on update cascade
 )ENGINE=InnoDB AUTO_INCREMENT=25;
 
 insert into bookings values(1,'Delta',2,'2018-12-23', '09:30 Hrs',1,250);
-insert into bookings values(2,'AA',1,'2019-01-03', '12:30 Hrs',1,1250);
-insert into bookings values(3,'United',1,'2019-10-30', '19:30 Hrs',1,2500);
+insert into bookings values(2,'AA',1,'2019-01-03', '12:30 Hrs',2,1250);
+insert into bookings values(3,'United',1,'2019-10-30', '19:30 Hrs',3,2500);
 
 
 select * from bookings;
