@@ -62,6 +62,12 @@ public class BookingRepositoryTest {
     }
 
     @Test
+    @Transactional
+    @Rollback(false)
     public void deleteById() {
+        Long bookingId = 25l;
+        bookingRepository.deleteById(bookingId);
+        assertTrue(true);
+
     }
 }

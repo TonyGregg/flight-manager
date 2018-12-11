@@ -1,6 +1,8 @@
 -- 1. Ceate users table
 -- Store user information
 
+
+-- 
 CREATE TABLE flight_users (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `email` varchar(50) NOT NULL,
@@ -8,13 +10,17 @@ CREATE TABLE flight_users (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25;
 
+alter table flight_users add constraint un_email_usr unique(email);
 
 insert into flight_users values (1,'test1@gmail.com','test1');
 insert into flight_users values (2,'test2@gmail.com','test2');
+
 insert into flight_users values (3,'test3@gmail.com','test3');
 
 
 select * from flight_users;
+
+delete from flight_users where id = 27;
 
 
 CREATE TABLE cities (
@@ -84,6 +90,7 @@ CREATE TABLE bookings(
 insert into bookings values(1,'Delta',2,'2018-12-23', '09:30 Hrs',1,250);
 insert into bookings values(2,'AA',1,'2019-01-03', '12:30 Hrs',2,1250);
 insert into bookings values(3,'United',1,'2019-10-30', '19:30 Hrs',3,2500);
+insert into bookings values(4,'AA',4,'2019-01-30', '19:30 Hrs',3,4500);
 
 
 select * from bookings;

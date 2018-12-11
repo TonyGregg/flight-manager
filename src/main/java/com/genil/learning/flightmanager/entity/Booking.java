@@ -1,6 +1,7 @@
 package com.genil.learning.flightmanager.entity;
 
 
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
