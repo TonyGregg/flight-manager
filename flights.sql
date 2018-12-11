@@ -14,7 +14,7 @@ insert into flight_users values (2,'test2@gmail.com','test2');
 insert into flight_users values (3,'test3@gmail.com','test3');
 
 
-select * from users;
+select * from flight_users;
 
 
 CREATE TABLE cities (
